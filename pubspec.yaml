@@ -1,0 +1,28 @@
+name: figma_shopping_app
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_native_splash: ^2.3.6
+
+flutter:
+  uses-material-design: true
+
+flutter_native_splash:
+  color: "#9775FA"
+  color_dark: "#1B262C"
+  image: assets/splash_screen_light.png
+  image_dark: assets/splash_screen_dark.png
+  android_12:
+    image: assets/splash_icon.png
