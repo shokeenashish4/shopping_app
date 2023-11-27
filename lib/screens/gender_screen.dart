@@ -1,3 +1,4 @@
+import 'package:figma_shopping_app/generated/assets.dart';
 import 'package:flutter/material.dart';
 
 class GenderScreen extends StatelessWidget {
@@ -11,7 +12,7 @@ class GenderScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 30),
         child: Column(
           children: [
-            Image.asset("assets/gender_screen_image.png"),
+            Image.asset(Assets.assetsGenderScreenImage),
             Padding(
               padding: const EdgeInsets.all(15),
               child: Container(
@@ -52,12 +53,15 @@ class GenderScreen extends StatelessWidget {
                             Expanded(
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                    const EdgeInsets.only(left: 15, right: 5),
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                     fixedSize: const Size.fromHeight(60),
                                     backgroundColor: const Color(0xFFF5F6FA),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                   child: const Text(
                                     "Female",
@@ -71,12 +75,15 @@ class GenderScreen extends StatelessWidget {
                             Expanded(
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                    const EdgeInsets.only(right: 15, left: 5),
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                     fixedSize: const Size.fromHeight(60),
                                     backgroundColor: const Color(0xFF9775FA),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                   child: const Text(
                                     "Male",
@@ -91,7 +98,6 @@ class GenderScreen extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        enableFeedback: true,
                         onTap: () {},
                         child: const Text(
                           "Skip",

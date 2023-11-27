@@ -5,6 +5,8 @@ class Assets {
   static const String assetsArrowLeft = 'assets/arrow_left.svg';
   static const String assetsCheckIcon = 'assets/check_icon.svg';
   static const String assetsFacebookLogo = 'assets/facebook_logo.svg';
+  static const String assetsGenderScreenImage =
+      'assets/gender_screen_image.png';
   static const String assetsGoogleLogo = 'assets/google_logo.svg';
   static const String assetsSplashIcon = 'assets/splash_icon.png';
   static const String assetsSplashScreenDark = 'assets/splash_screen_dark.png';

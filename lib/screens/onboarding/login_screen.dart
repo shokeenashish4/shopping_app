@@ -1,12 +1,11 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
+import 'package:figma_shopping_app/generated/assets.dart';
 import 'package:figma_shopping_app/screens/gender_screen.dart';
 import 'package:figma_shopping_app/screens/onboarding/signup_onboarding_screen.dart';
 import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../generated/assets.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
