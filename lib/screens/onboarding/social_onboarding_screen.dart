@@ -1,4 +1,5 @@
 import 'package:figma_shopping_app/generated/assets.dart';
+import 'package:figma_shopping_app/screens/onboarding/login_screen.dart';
 import 'package:figma_shopping_app/screens/onboarding/signup_onboarding_screen.dart';
 import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ class SocialOnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnboardingScreenScaffold(
+      showBackButton: false,
       title: "Let's Get Started",
       lowerText: "Already have an account?",
       lowerTextAction: "Sign in",
@@ -18,6 +20,13 @@ class SocialOnboardingScreen extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => const SignupOnboardingScreen(),
+          ),
+        );
+      },
+      onLowerTextActionClick: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const LoginScreen(),
           ),
         );
       },

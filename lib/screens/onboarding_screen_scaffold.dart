@@ -1,5 +1,6 @@
 import 'package:figma_shopping_app/colors.dart';
 import 'package:figma_shopping_app/generated/assets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,6 +10,7 @@ class OnboardingScreenScaffold extends StatelessWidget {
   final Widget child;
   final void Function() onButtonClick;
   final void Function()? onLowerTextActionClick;
+  final bool showBackButton;
 
   const OnboardingScreenScaffold({
     super.key,
@@ -20,6 +22,7 @@ class OnboardingScreenScaffold extends StatelessWidget {
     required this.child,
     required this.onButtonClick,
     this.onLowerTextActionClick,
+    this.showBackButton = true,
   });
 
   @override
@@ -28,19 +31,21 @@ class OnboardingScreenScaffold extends StatelessWidget {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         leadingWidth: 80,
-        leading: IconButton(
-          onPressed: Navigator.of(context).pop,
-          icon: Container(
-            decoration: const BoxDecoration(
-              color: Color(0xFFF5F6FA),
-              shape: BoxShape.circle,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(Assets.assetsArrowLeft),
-            ),
-          ),
-        ),
+        leading: showBackButton
+            ? IconButton(
+                onPressed: Navigator.of(context).pop,
+                icon: Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFF5F6FA),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(Assets.assetsArrowLeft),
+                  ),
+                ),
+              )
+            : null,
       ),
       body: Column(
         children: [
@@ -52,35 +57,41 @@ class OnboardingScreenScaffold extends StatelessWidget {
               letterSpacing: -0.75,
             ),
           ),
-          Expanded(child: Center(child: child)),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (lowerText != null)
-                  Text(
-                    "$lowerText ",
-                    style: const TextStyle(
-                      fontSize: 15,
-                      color: subtitleColor,
-                    ),
+          if (subtitle != null)
+            Text(
+              "$subtitle",
+              style: const TextStyle(
+                fontSize: 15,
+                color: Color(0xFF8F959E),
+              ),
+            ),
+          Expanded(child: Center(child: SingleChildScrollView(child: child))),
+          if (lowerText != null && lowerTextAction != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 25),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  style: const TextStyle(
+                    fontSize: 15,
+                    color: subtitleColor,
                   ),
-                if (lowerTextAction != null)
-                  InkWell(
-                    enableFeedback: true,
-                    onTap: onLowerTextActionClick,
-                    child: Text(
-                      lowerTextAction!,
+                  children: [
+                    TextSpan(text: "$lowerText "),
+                    TextSpan(
+                      text: lowerTextAction,
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 15,
+                        color: Colors.black,
                       ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = onLowerTextActionClick,
                     ),
-                  )
-              ],
+                  ],
+                ),
+              ),
             ),
-          ),
           InkWell(
             enableFeedback: true,
             onTap: onButtonClick,
