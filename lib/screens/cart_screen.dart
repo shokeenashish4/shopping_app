@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
       buttonText: "Checkout",
       onButtonClick: () {},
       child: const Padding(
-        padding: EdgeInsets.only(left: 20, right: 20, bottom: 30),
+        padding: EdgeInsets.only(left: 20, right: 20, bottom: 28),
         child: Column(
           children: [
             CartItem(
