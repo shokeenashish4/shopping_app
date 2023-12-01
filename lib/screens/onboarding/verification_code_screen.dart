@@ -11,7 +11,8 @@ class VerificationCodeScreen extends StatelessWidget {
     return OnboardingScreenScaffold(
       title: "Verification Code",
       lowerText: "Resend Confirmation Code",
-      lowerTextAction: "00:10",
+      showLowerTextActionInLeft: true,
+      lowerTextAction: "00:10 ",
       buttonText: "Confirm Code",
       onButtonClick: () {
         Navigator.of(context).push(
@@ -24,10 +25,70 @@ class VerificationCodeScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            Image.asset(Assets.assetsForgotPwdCloud),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 80),
+              child: Image.asset(Assets.assetsForgotPwdCloud),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 40),
+              child: Row(
+                children: [
+                  Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          enabledBorder: _inputBorder,
+                          focusedBorder: _inputBorder,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          enabledBorder: _inputBorder,
+                          focusedBorder: _inputBorder,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          enabledBorder: _inputBorder,
+                          focusedBorder: _inputBorder,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          enabledBorder: _inputBorder,
+                          focusedBorder: _inputBorder,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+const _inputBorder = OutlineInputBorder();

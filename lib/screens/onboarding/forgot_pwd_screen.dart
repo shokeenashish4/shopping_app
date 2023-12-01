@@ -14,6 +14,7 @@ class ForgotPwdScreen extends StatelessWidget {
       lowerTextAction: "",
       lowerText:
           "Please write your E-mail to receive a confirmation code to set a new Password",
+      lowerTextPadding: const EdgeInsets.all(32),
       buttonText: "Confirm Mail",
       onButtonClick: () {
         Navigator.of(context).push(
@@ -26,12 +27,18 @@ class ForgotPwdScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            Image.asset(Assets.assetsForgotPwdCloud),
-            const TextField(
-              decoration: InputDecoration(
-                labelText: "E-mail Address",
-                labelStyle: labelTextStyle,
-                enabledBorder: textFieldBorder,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 68),
+              child: Image.asset(Assets.assetsForgotPwdCloud),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 72),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: "E-mail Address",
+                  labelStyle: labelTextStyle,
+                  enabledBorder: textFieldBorder,
+                ),
               ),
             ),
           ],
