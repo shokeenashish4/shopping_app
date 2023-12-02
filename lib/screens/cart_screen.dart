@@ -31,16 +31,16 @@ class CartScreen extends StatelessWidget {
               backgroundColor: Color(0xFFF5F6FA),
             ),
             // Delivery Address line
-            AddressandPayment(
-              addorPayField: "Delivery Address",
+            AddressAndPayment(
+              addOrPayField: "Delivery Address",
               icon: Icons.arrow_forward_ios_outlined,
               iconRef: Assets.assetsMapIcon,
               payNoOrAddress: "43, Electronics City Phase 1,Electronic City",
               checkImg: Assets.assetsCheckImgCart,
             ),
             // Payment Address
-            AddressandPayment(
-              addorPayField: "Payment Method",
+            AddressAndPayment(
+              addOrPayField: "Payment Method",
               icon: Icons.arrow_forward_ios_outlined,
               iconRef: Assets.assetsVisaImg,
               payNoOrAddress: "**** 6789",
@@ -137,17 +137,17 @@ class CartScreen extends StatelessWidget {
   }
 }
 
-class AddressandPayment extends StatelessWidget {
-  const AddressandPayment({
+class AddressAndPayment extends StatelessWidget {
+  const AddressAndPayment({
     super.key,
-    required this.addorPayField,
+    required this.addOrPayField,
     required this.icon,
     required this.iconRef,
     required this.payNoOrAddress,
     required this.checkImg,
   });
 
-  final String addorPayField, iconRef, payNoOrAddress, checkImg;
+  final String addOrPayField, iconRef, payNoOrAddress, checkImg;
   final IconData icon;
 
   @override
@@ -160,7 +160,7 @@ class AddressandPayment extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                addorPayField,
+                addOrPayField,
                 style: const TextStyle(
                   fontSize: 17,
                   fontFamily: "Inter",
