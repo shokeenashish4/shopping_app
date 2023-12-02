@@ -1,6 +1,7 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:figma_shopping_app/generated/assets.dart';
 import 'package:figma_shopping_app/screens/gender_screen.dart';
+import 'package:figma_shopping_app/screens/onboarding/forgot_pwd_screen.dart';
 import 'package:figma_shopping_app/screens/onboarding/signup_onboarding_screen.dart';
 import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,15 +61,23 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 30),
+            Padding(
+              padding: const EdgeInsets.only(top: 30),
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Text(
-                  "Forgot Password?",
-                  style: TextStyle(
-                    color: Color(0xFFEA4335),
-                    fontSize: 15,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => const ForgotPwdScreen()),
+                    );
+                  },
+                  child: const Text(
+                    "Forgot Password?",
+                    style: TextStyle(
+                      color: Color(0xFFEA4335),
+                      fontSize: 15,
+                    ),
                   ),
                 ),
               ),

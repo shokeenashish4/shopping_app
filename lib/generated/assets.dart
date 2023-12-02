@@ -4,13 +4,19 @@ class Assets {
 
   static const String assetsArrowLeft = 'assets/arrow_left.svg';
   static const String assetsCheckIcon = 'assets/check_icon.svg';
+  static const String assetsCheckImgCart = 'assets/check_img_cart.png';
   static const String assetsFacebookLogo = 'assets/facebook_logo.svg';
+  static const String assetsForgotPwdCloud = 'assets/forgot_pwd_cloud.png';
   static const String assetsGenderScreenImage =
       'assets/gender_screen_image.png';
   static const String assetsGoogleLogo = 'assets/google_logo.svg';
+  static const String assetsImg1Screen11 = 'assets/img1_screen11.png';
+  static const String assetsImg2Screen11 = 'assets/img2_screen11.png';
+  static const String assetsMapIcon = 'assets/map_icon.png';
   static const String assetsSplashIcon = 'assets/splash_icon.png';
   static const String assetsSplashScreenDark = 'assets/splash_screen_dark.png';
   static const String assetsSplashScreenLight =
       'assets/splash_screen_light.png';
   static const String assetsTwitterLogo = 'assets/twitter_logo.svg';
+  static const String assetsVisaImg = 'assets/visa_img.png';
 }
