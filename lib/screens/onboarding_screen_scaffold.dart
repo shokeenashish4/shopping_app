@@ -5,16 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class OnboardingScreenScaffold extends StatelessWidget {
-  final String title, buttonText;
-  final String? subtitle, lowerText, lowerTextAction;
+  final String buttonText;
+  final String? title, subtitle, lowerText, lowerTextAction, appbarTitle;
   final Widget child;
   final void Function() onButtonClick;
   final void Function()? onLowerTextActionClick;
   final bool showBackButton;
+  final EdgeInsets lowerTextPadding;
+  final bool showLowerTextActionInLeft;
 
   const OnboardingScreenScaffold({
     super.key,
-    required this.title,
+    this.title,
     this.subtitle,
     this.lowerText,
     this.lowerTextAction,
@@ -23,12 +25,16 @@ class OnboardingScreenScaffold extends StatelessWidget {
     required this.onButtonClick,
     this.onLowerTextActionClick,
     this.showBackButton = true,
+    this.appbarTitle,
+    this.lowerTextPadding = const EdgeInsets.only(bottom: 25),
+    this.showLowerTextActionInLeft = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         scrolledUnderElevation: 0,
         leadingWidth: 80,
         leading: showBackButton
@@ -46,17 +52,29 @@ class OnboardingScreenScaffold extends StatelessWidget {
                 ),
               )
             : null,
+        title: appbarTitle != null
+            ? Text(
+                appbarTitle!,
+                style: const TextStyle(
+                  fontFamily: "Inter",
+                  fontWeight: FontWeight.w600,
+                  fontSize: 17,
+                ),
+                textAlign: TextAlign.center,
+              )
+            : null,
       ),
       body: Column(
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 28,
-              letterSpacing: -0.75,
+          if (title != null)
+            Text(
+              "$title",
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 28,
+                letterSpacing: -0.75,
+              ),
             ),
-          ),
           if (subtitle != null)
             Text(
               "$subtitle",
@@ -65,8 +83,12 @@ class OnboardingScreenScaffold extends StatelessWidget {
                 color: Color(0xFF8F959E),
               ),
             ),
-          Expanded(child: Center(child: SingleChildScrollView(child: child))),
-          if (lowerText != null && lowerTextAction != null)
+          Expanded(
+            child: Center(
+              child: SingleChildScrollView(child: child),
+            ),
+          ),
+          if (lowerText != null || lowerTextAction != null)
             Padding(
               padding: const EdgeInsets.only(bottom: 25),
               child: RichText(
@@ -77,17 +99,18 @@ class OnboardingScreenScaffold extends StatelessWidget {
                     color: subtitleColor,
                   ),
                   children: [
-                    TextSpan(text: "$lowerText "),
-                    TextSpan(
-                      text: lowerTextAction,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15,
-                        color: Colors.black,
+                    if (lowerText != null) TextSpan(text: "$lowerText "),
+                    if (lowerTextAction != null)
+                      TextSpan(
+                        text: lowerTextAction,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          color: Colors.black,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = onLowerTextActionClick,
                       ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = onLowerTextActionClick,
-                    ),
                   ],
                 ),
               ),
