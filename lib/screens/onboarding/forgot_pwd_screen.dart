@@ -13,7 +13,6 @@ class ForgotPwdScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OnboardingScreenScaffold(
       title: "Forgot Password",
-      lowerTextAction: "",
       lowerText:
           "Please write your E-mail to receive a confirmation code to set a new Password",
       lowerTextPadding: const EdgeInsets.all(32),

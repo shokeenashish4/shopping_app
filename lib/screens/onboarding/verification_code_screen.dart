@@ -33,58 +33,36 @@ class VerificationCodeScreen extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 40),
               child: Row(
                 children: [
-                  Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: TextField(
-                        readOnly: true,
-                        decoration: InputDecoration(
-                          enabledBorder: _inputBorder,
-                          focusedBorder: _inputBorder,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: TextField(
-                        readOnly: true,
-                        decoration: InputDecoration(
-                          enabledBorder: _inputBorder,
-                          focusedBorder: _inputBorder,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: TextField(
-                        readOnly: true,
-                        decoration: InputDecoration(
-                          enabledBorder: _inputBorder,
-                          focusedBorder: _inputBorder,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: TextField(
-                        readOnly: true,
-                        decoration: InputDecoration(
-                          enabledBorder: _inputBorder,
-                          focusedBorder: _inputBorder,
-                        ),
-                      ),
-                    ),
-                  ),
+                  VerificationCodeField(),
+                  VerificationCodeField(),
+                  VerificationCodeField(),
+                  VerificationCodeField(),
                 ],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class VerificationCodeField extends StatelessWidget {
+  const VerificationCodeField({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Flexible(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: TextField(
+          readOnly: true,
+          decoration: InputDecoration(
+            enabledBorder: _inputBorder,
+            focusedBorder: _inputBorder,
+          ),
         ),
       ),
     );

@@ -83,8 +83,12 @@ class OnboardingScreenScaffold extends StatelessWidget {
                 color: Color(0xFF8F959E),
               ),
             ),
-          Expanded(child: Center(child: SingleChildScrollView(child: child))),
-          if (lowerText != null && lowerTextAction != null)
+          Expanded(
+            child: Center(
+              child: SingleChildScrollView(child: child),
+            ),
+          ),
+          if (lowerText != null || lowerTextAction != null)
             Padding(
               padding: const EdgeInsets.only(bottom: 25),
               child: RichText(
@@ -95,17 +99,18 @@ class OnboardingScreenScaffold extends StatelessWidget {
                     color: subtitleColor,
                   ),
                   children: [
-                    TextSpan(text: "$lowerText "),
-                    TextSpan(
-                      text: lowerTextAction,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15,
-                        color: Colors.black,
+                    if (lowerText != null) TextSpan(text: "$lowerText "),
+                    if (lowerTextAction != null)
+                      TextSpan(
+                        text: lowerTextAction,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          color: Colors.black,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = onLowerTextActionClick,
                       ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = onLowerTextActionClick,
-                    ),
                   ],
                 ),
               ),

@@ -161,54 +161,59 @@ class AddressAndPayment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                addOrPayField,
-                style: const TextStyle(
-                  fontSize: 17,
-                  fontFamily: "Inter",
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Icon(
-                icon,
-                size: 15,
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Row(
+      child: DefaultTextStyle(
+        style: const TextStyle(
+          fontFamily: "Inter",
+          color: Colors.black,
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(iconRef),
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      left: 15,
-                      top: 9,
-                      bottom: 7,
-                    ),
-                    child: Text(
-                      payNoOrAddress,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFF8F959E),
-                      ),
-                    ),
+                Text(
+                  addOrPayField,
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                Image.asset(
-                  checkImg,
+                Icon(
+                  icon,
+                  size: 15,
                 ),
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(
+                children: [
+                  Image.asset(iconRef),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        top: 9,
+                        bottom: 7,
+                      ),
+                      child: Text(
+                        payNoOrAddress,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF8F959E),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Image.asset(
+                    checkImg,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -235,7 +240,6 @@ class CartItem extends StatelessWidget {
       width: double.infinity,
       height: 120,
       child: Card(
-        clipBehavior: Clip.none,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -244,6 +248,7 @@ class CartItem extends StatelessWidget {
         elevation: elevation,
         shadowColor: const Color(0xFF393F4A).withOpacity(0.25),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: const EdgeInsets.all(10),
@@ -269,63 +274,68 @@ class CartItem extends StatelessWidget {
                   constraints: const BoxConstraints(
                     maxWidth: 150,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        itemName,
-                        style: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Inter",
-                        ),
-                      ),
-                      Text(
-                        itemPrice,
-                        style: const TextStyle(
-                          color: Color(0xFF8F959E),
-                          fontSize: 11,
-                          fontFamily: "Inter",
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(right: 20),
-                            child: Icon(
-                              Icons.keyboard_arrow_down_outlined,
-                              color: Color(0xFF8F959E),
-                              size: 20,
-                            ),
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontFamily: "Inter",
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          itemName,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 20),
-                            child: Text(
-                              itemQuantity,
-                              style: const TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Inter",
+                        ),
+                        Text(
+                          itemPrice,
+                          style: const TextStyle(
+                            color: Color(0xFF8F959E),
+                            fontSize: 11,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(right: 20),
+                              child: Icon(
+                                Icons.keyboard_arrow_down_outlined,
+                                color: Color(0xFF8F959E),
+                                size: 20,
                               ),
                             ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(right: 20),
-                            child: Icon(
-                              Icons.keyboard_arrow_up_outlined,
-                              color: Color(0xFF8F959E),
-                              size: 20,
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Text(
+                                itemQuantity,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            const Padding(
+                              padding: EdgeInsets.only(right: 20),
+                              child: Icon(
+                                Icons.keyboard_arrow_up_outlined,
+                                color: Color(0xFF8F959E),
+                                size: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(right: 10, bottom: 28, left: 10),
+              padding: EdgeInsets.only(right: 10, bottom: 20, left: 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
