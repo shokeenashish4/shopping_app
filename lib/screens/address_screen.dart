@@ -27,9 +27,7 @@ class AddressScreen extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const InputField(
-              currHintText: "Naam Likho",
-            ),
+            const InputField(),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               mainAxisSize: MainAxisSize.min,
@@ -48,7 +46,7 @@ class AddressScreen extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        InputField(currHintText: "Country Batao"),
+                        InputField(),
                       ],
                     ),
                   ),
@@ -67,7 +65,7 @@ class AddressScreen extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        InputField(currHintText: "City Batao"),
+                        InputField(),
                       ],
                     ),
                   ),
@@ -81,7 +79,7 @@ class AddressScreen extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const InputField(currHintText: "No. Likho"),
+            const InputField(),
             const Text(
               "Address",
               style: TextStyle(
@@ -89,7 +87,7 @@ class AddressScreen extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const InputField(currHintText: "Poora Address Likho"),
+            const InputField(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -122,33 +120,28 @@ class AddressScreen extends StatelessWidget {
 class InputField extends StatelessWidget {
   const InputField({
     super.key,
-    required this.currHintText,
   });
-
-  final String currHintText;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextField(
+        style: const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+        ),
         decoration: InputDecoration(
           filled: true,
           fillColor: const Color(0xFFF5F6FA),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              width: 1,
-            ),
+            borderSide: const BorderSide(width: 1),
             borderRadius: BorderRadius.circular(10),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              width: 1,
-              color: Color(0xFF8F959E),
-            ),
+            borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(10),
           ),
-          hintText: currHintText,
         ),
         maxLines: null,
       ),
