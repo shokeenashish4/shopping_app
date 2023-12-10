@@ -13,6 +13,9 @@ class Assets {
   static const String assetsImg1Screen11 = 'assets/img1_screen11.png';
   static const String assetsImg2Screen11 = 'assets/img2_screen11.png';
   static const String assetsMapIcon = 'assets/map_icon.png';
+  static const String assetsPaymentCard1Img = 'assets/payment_card1_img.png';
+  static const String assetsPaymentCard2Img = 'assets/payment_card2_img.png';
+  static const String assetsPlusIcon = 'assets/plus_icon.png';
   static const String assetsSplashIcon = 'assets/splash_icon.png';
   static const String assetsSplashScreenDark = 'assets/splash_screen_dark.png';
   static const String assetsSplashScreenLight =

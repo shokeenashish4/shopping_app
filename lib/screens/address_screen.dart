@@ -1,4 +1,5 @@
 import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
+import 'package:figma_shopping_app/screens/payment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,13 @@ class AddressScreen extends StatelessWidget {
     return OnboardingScreenScaffold(
       appbarTitle: "Address",
       buttonText: "Save Address",
-      onButtonClick: () {},
+      onButtonClick: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const PaymentScreen(),
+          ),
+        );
+      },
       child: Padding(
         padding: const EdgeInsets.only(
           left: 20,
