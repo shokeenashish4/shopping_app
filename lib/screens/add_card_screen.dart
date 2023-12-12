@@ -24,11 +24,18 @@ class AddCardScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset(Assets.assetsMasterCardLogo),
-                  Image.asset(Assets.assetsPaypalCardLogo),
-                  Image.asset(Assets.assetsOtherBankCard),
+                  IconButton(
+                      onPressed: () {},
+                      icon:
+                          Image.asset(width: 90, Assets.assetsMasterCardLogo)),
+                  IconButton(
+                      onPressed: () {},
+                      icon:
+                          Image.asset(width: 90, Assets.assetsPaypalCardLogo)),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Image.asset(width: 90, Assets.assetsOtherBankCard)),
                 ],
               ),
               const Padding(
