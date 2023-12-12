@@ -1,4 +1,5 @@
 import 'package:figma_shopping_app/generated/assets.dart';
+import 'package:figma_shopping_app/screens/add_card_screen.dart';
 import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,13 @@ class PaymentScreen extends StatelessWidget {
     return OnboardingScreenScaffold(
       appbarTitle: "Payment",
       buttonText: "Save Card",
-      onButtonClick: () {},
+      onButtonClick: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const AddCardScreen(),
+          ),
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
