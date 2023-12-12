@@ -2,8 +2,15 @@ import 'package:figma_shopping_app/generated/assets.dart';
 import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/material.dart';
 
-class AddCardScreen extends StatelessWidget {
+class AddCardScreen extends StatefulWidget {
   const AddCardScreen({super.key});
+
+  @override
+  State<AddCardScreen> createState() => _AddCardScreenState();
+}
+
+class _AddCardScreenState extends State<AddCardScreen> {
+  String? selectedCardName;
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +31,41 @@ class AddCardScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon:
-                          Image.asset(width: 90, Assets.assetsMasterCardLogo)),
-                  IconButton(
-                      onPressed: () {},
-                      icon:
-                          Image.asset(width: 90, Assets.assetsPaypalCardLogo)),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(width: 90, Assets.assetsOtherBankCard)),
+                  SelectableAssetImage(
+                    onTap: () {
+                      setState(() {
+                        selectedCardName = "mastercard";
+                      });
+                    },
+                    asset: Assets.assetsMasterCardLogo,
+                    isSelected: selectedCardName == "mastercard",
+                    selectedBackgroundColor: const Color(0xFFFFEEE3),
+                    selectedBorderColor: const Color(0xFFFF5F00),
+                  ),
+                  SelectableAssetImage(
+                    onTap: () {
+                      setState(() {
+                        selectedCardName = "paypal";
+                      });
+                    },
+                    asset: Assets.assetsPaypalCardLogo,
+                    isSelected: selectedCardName == "paypal",
+                    selectedBackgroundColor: const Color(0xFFCDD5F4),
+                    selectedBorderColor: const Color(0xFF849AEF),
+                  ),
+                  SelectableAssetImage(
+                    onTap: () {
+                      setState(() {
+                        selectedCardName = "other";
+                      });
+                    },
+                    asset: Assets.assetsOtherBankCard,
+                    isSelected: selectedCardName == "other",
+                    selectedBackgroundColor: const Color(0xFFD8D9E0),
+                    selectedBorderColor: const Color(0xFF000000),
+                  ),
                 ],
               ),
               const Padding(
@@ -112,6 +142,44 @@ class InputField extends StatelessWidget {
           ),
         ),
         maxLines: null,
+      ),
+    );
+  }
+}
+
+class SelectableAssetImage extends StatelessWidget {
+  final String asset;
+  final void Function() onTap;
+  final bool isSelected;
+  final Color selectedBackgroundColor,
+      selectedBorderColor,
+      unselectedBackgroundColor;
+
+  const SelectableAssetImage({
+    super.key,
+    required this.asset,
+    required this.onTap,
+    required this.isSelected,
+    required this.selectedBackgroundColor,
+    required this.selectedBorderColor,
+    this.unselectedBackgroundColor = const Color(0xFFF5F6FA),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: isSelected ? selectedBackgroundColor : unselectedBackgroundColor,
+        borderRadius: BorderRadius.circular(10),
+        border: isSelected ? Border.all(color: selectedBorderColor) : null,
+      ),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Image.asset(
+          width: 100,
+          height: 50,
+          asset,
+        ),
       ),
     );
   }
