@@ -14,6 +14,8 @@ class Assets {
   static const String assetsImg2Screen11 = 'assets/img2_screen11.png';
   static const String assetsMapIcon = 'assets/map_icon.png';
   static const String assetsMasterCardLogo = 'assets/master_card_logo.png';
+  static const String assetsOrderConfirmedImg =
+      'assets/order_confirmed_img.png';
   static const String assetsOtherBankCard = 'assets/other_bank_card.png';
   static const String assetsPaymentCard1Img = 'assets/payment_card1_img.png';
   static const String assetsPaymentCard2Img = 'assets/payment_card2_img.png';
