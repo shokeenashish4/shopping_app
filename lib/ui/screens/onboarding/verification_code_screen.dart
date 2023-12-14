@@ -1,6 +1,6 @@
 import 'package:figma_shopping_app/generated/assets.dart';
-import 'package:figma_shopping_app/screens/onboarding/new_pwd_screen.dart';
-import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding/new_pwd_screen.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class VerificationCodeScreen extends StatelessWidget {

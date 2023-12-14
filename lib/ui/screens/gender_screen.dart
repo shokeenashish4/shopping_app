@@ -1,4 +1,5 @@
 import 'package:figma_shopping_app/generated/assets.dart';
+import 'package:figma_shopping_app/ui/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class GenderScreen extends StatelessWidget {
@@ -98,7 +99,13 @@ class GenderScreen extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) {
+                              return const DashboardScreen();
+                            }),
+                          );
+                        },
                         child: const Text(
                           "Skip",
                           style: TextStyle(

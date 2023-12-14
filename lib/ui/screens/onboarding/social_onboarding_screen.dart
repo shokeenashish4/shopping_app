@@ -1,7 +1,7 @@
 import 'package:figma_shopping_app/generated/assets.dart';
-import 'package:figma_shopping_app/screens/onboarding/login_screen.dart';
-import 'package:figma_shopping_app/screens/onboarding/signup_onboarding_screen.dart';
-import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding/login_screen.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding/signup_onboarding_screen.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

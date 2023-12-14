@@ -1,5 +1,5 @@
-import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
-import 'package:figma_shopping_app/screens/payment_screen.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding_screen_scaffold.dart';
+import 'package:figma_shopping_app/ui/screens/payment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

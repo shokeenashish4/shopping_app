@@ -1,4 +1,4 @@
-import 'package:figma_shopping_app/screens/onboarding/social_onboarding_screen.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding/social_onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

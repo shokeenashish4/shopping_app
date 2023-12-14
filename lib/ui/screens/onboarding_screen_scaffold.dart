@@ -1,5 +1,5 @@
-import 'package:figma_shopping_app/colors.dart';
 import 'package:figma_shopping_app/generated/assets.dart';
+import 'package:figma_shopping_app/ui/colors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
