@@ -48,7 +48,7 @@ class OrderConfirmedScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 120),
+                    padding: const EdgeInsets.only(top: 60),
                     child: SizedBox(
                       height: 50,
                       width: double.infinity,
