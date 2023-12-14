@@ -1,5 +1,6 @@
 import 'package:figma_shopping_app/generated/assets.dart';
 import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
+import 'package:figma_shopping_app/screens/order_confirmed_screen.dart';
 import 'package:flutter/material.dart';
 
 class AddCardScreen extends StatefulWidget {
@@ -17,7 +18,13 @@ class _AddCardScreenState extends State<AddCardScreen> {
     return OnboardingScreenScaffold(
       appbarTitle: "Add New Card",
       buttonText: "Add Card",
-      onButtonClick: () {},
+      onButtonClick: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const OrderConfirmedScreen(),
+          ),
+        );
+      },
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 160),
         child: DefaultTextStyle(
