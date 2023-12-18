@@ -4,5 +4,5 @@ import 'package:get_it/get_it.dart';
 final di = GetIt.instance;
 
 void setupDependencyInjection() {
-  di.registerFactory<AuthRepository>(() => FakeAuthRepository());
+  di.registerSingleton<AuthRepository>(FakeAuthRepository());
 }

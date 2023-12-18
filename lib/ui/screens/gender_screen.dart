@@ -2,8 +2,15 @@ import 'package:figma_shopping_app/generated/assets.dart';
 import 'package:figma_shopping_app/ui/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
-class GenderScreen extends StatelessWidget {
+class GenderScreen extends StatefulWidget {
   const GenderScreen({super.key});
+
+  @override
+  State<GenderScreen> createState() => _GenderScreenState();
+}
+
+class _GenderScreenState extends State<GenderScreen> {
+  String? buttonSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -51,49 +58,17 @@ class GenderScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Expanded(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 15, right: 5),
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    fixedSize: const Size.fromHeight(60),
-                                    backgroundColor: const Color(0xFFF5F6FA),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    "Female",
-                                    style: TextStyle(
-                                      color: Color(0xFF8F959E),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                            SelectableButton(
+                              isSelected: buttonSelected == "Female",
+                              buttonText: "Female",
+                              onTap: () =>
+                                  setState(() => buttonSelected = "Female"),
                             ),
-                            Expanded(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 15, left: 5),
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    fixedSize: const Size.fromHeight(60),
-                                    backgroundColor: const Color(0xFF9775FA),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    "Male",
-                                    style: TextStyle(
-                                      color: Color(0xFFffffff),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                            SelectableButton(
+                              isSelected: buttonSelected == "Male",
+                              buttonText: "Male",
+                              onTap: () =>
+                                  setState(() => buttonSelected = "Male"),
                             ),
                           ],
                         ),
@@ -122,6 +97,67 @@ class GenderScreen extends StatelessWidget {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class SelectableButton extends StatelessWidget {
+  const SelectableButton({
+    super.key,
+    required this.isSelected,
+    this.selectedColor = const Color(0xFF9775FA),
+    this.unSelectedColor = const Color(0xFFF5F6FA),
+    this.selectedTextColor = Colors.white,
+    this.unSelectedTextColor = const Color(0xFF8F959E),
+    required this.buttonText,
+    required this.onTap,
+  });
+
+  final bool isSelected;
+  final Color selectedColor,
+      unSelectedColor,
+      selectedTextColor,
+      unSelectedTextColor;
+  final String buttonText;
+  final void Function() onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: buttonText == "Female" ? 15 : 5,
+          right: buttonText == "Female" ? 5 : 15,
+        ),
+        child: ElevatedButton(
+          onPressed: () {
+            onTap();
+            Future.delayed(
+              const Duration(seconds: 2),
+              () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const DashboardScreen(),
+                  ),
+                );
+              },
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            fixedSize: const Size.fromHeight(60),
+            backgroundColor: isSelected ? selectedColor : unSelectedColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          child: Text(
+            buttonText,
+            style: TextStyle(
+              color: isSelected ? selectedTextColor : unSelectedTextColor,
+            ),
+          ),
         ),
       ),
     );

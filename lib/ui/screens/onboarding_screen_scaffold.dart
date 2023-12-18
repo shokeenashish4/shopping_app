@@ -8,7 +8,7 @@ class OnboardingScreenScaffold extends StatelessWidget {
   final String buttonText;
   final String? title, subtitle, lowerText, lowerTextAction, appbarTitle;
   final Widget child;
-  final void Function() onButtonClick;
+  final void Function()? onButtonClick;
   final void Function()? onLowerTextActionClick;
   final bool showBackButton;
   final EdgeInsets lowerTextPadding;
@@ -22,7 +22,7 @@ class OnboardingScreenScaffold extends StatelessWidget {
     this.lowerTextAction,
     required this.buttonText,
     required this.child,
-    required this.onButtonClick,
+    this.onButtonClick,
     this.onLowerTextActionClick,
     this.showBackButton = true,
     this.appbarTitle,
@@ -121,7 +121,10 @@ class OnboardingScreenScaffold extends StatelessWidget {
             child: Container(
               alignment: Alignment.center,
               height: 75,
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context)
+                  .colorScheme
+                  .primary
+                  .withOpacity(onButtonClick != null ? 1 : 0.3),
               child: Text(
                 buttonText,
                 style: TextStyle(
