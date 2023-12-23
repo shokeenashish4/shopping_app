@@ -22,8 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
   bool showErrorMessage = false;
   bool? isUsernameCorrect;
   bool? isPasswordCorrect;
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
+  final usernameController = TextEditingController(text: "shokeenashish7");
+  final passwordController = TextEditingController(text: "AshishShokeen@1");
 
   void resetStates() {
     setState(() {
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
           "By Connecting your Account you confirm that you Agree with our",
       lowerTextAction: "Terms and Conditions",
       buttonText: "Login",
-      onButtonClick: () {
+      onButtonClick: () async {
         resetStates();
 
         final wasLoginSuccess = authRepo.login(
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
           password: passwordController.text,
         );
 
-        if (wasLoginSuccess) {
+        if (await wasLoginSuccess) {
           Future.delayed(
             const Duration(seconds: 2),
             () {

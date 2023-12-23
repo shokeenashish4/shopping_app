@@ -63,7 +63,7 @@ class _SignupOnboardingScreenState extends State<SignupOnboardingScreen> {
       onButtonClick: isUsernameValid == true &&
               isPasswordValid == true &&
               isEmailValid == true
-          ? () {
+          ? () async {
               setState(() {
                 showErrorMessage = false;
               });
@@ -74,9 +74,9 @@ class _SignupOnboardingScreenState extends State<SignupOnboardingScreen> {
                 username: usernameController.text,
               );
 
-              if (wasSignUpSuccess) {
+              if (await wasSignUpSuccess) {
                 Future.delayed(
-                  const Duration(seconds: 2),
+                  const Duration(seconds: 3),
                   () {
                     Navigator.of(context).push(
                       MaterialPageRoute(

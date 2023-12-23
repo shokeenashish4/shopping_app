@@ -15,6 +15,7 @@ class _GenderScreenState extends State<GenderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFF9775FA),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 30),

@@ -1,4 +1,5 @@
 import 'package:figma_shopping_app/generated/assets.dart';
+import 'package:figma_shopping_app/ui/screens/gender_screen.dart';
 import 'package:figma_shopping_app/ui/screens/onboarding/login_screen.dart';
 import 'package:figma_shopping_app/ui/screens/onboarding/signup_onboarding_screen.dart';
 import 'package:figma_shopping_app/ui/screens/onboarding_screen_scaffold.dart';
@@ -42,23 +43,59 @@ class SocialButtonsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         SocialButton(
-          backgroundColor: Color(0xFF4267B2),
+          backgroundColor: const Color(0xFF4267B2),
           text: "Facebook",
           iconPath: Assets.assetsFacebookLogo,
+          onTap: () {
+            Future.delayed(
+              const Duration(seconds: 3),
+              () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const GenderScreen(),
+                  ),
+                );
+              },
+            );
+          },
         ),
         SocialButton(
-          backgroundColor: Color(0xFF1DA1F2),
+          backgroundColor: const Color(0xFF1DA1F2),
           text: "Twitter",
           iconPath: Assets.assetsTwitterLogo,
+          onTap: () {
+            Future.delayed(
+              const Duration(seconds: 3),
+              () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const GenderScreen(),
+                  ),
+                );
+              },
+            );
+          },
         ),
         SocialButton(
-          backgroundColor: Color(0xFFEA4335),
+          backgroundColor: const Color(0xFFEA4335),
           text: "Google",
           iconPath: Assets.assetsGoogleLogo,
+          onTap: () {
+            Future.delayed(
+              const Duration(seconds: 3),
+              () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const GenderScreen(),
+                  ),
+                );
+              },
+            );
+          },
         ),
       ],
     );
@@ -68,12 +105,14 @@ class SocialButtonsSection extends StatelessWidget {
 class SocialButton extends StatelessWidget {
   final Color backgroundColor;
   final String text, iconPath;
+  final Function() onTap;
 
   const SocialButton({
     super.key,
     required this.backgroundColor,
     required this.text,
     required this.iconPath,
+    required this.onTap,
   });
 
   @override
@@ -81,7 +120,9 @@ class SocialButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          onTap();
+        },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: backgroundColor,

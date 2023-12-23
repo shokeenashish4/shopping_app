@@ -4,10 +4,17 @@ import 'package:figma_shopping_app/ui/screens/onboarding/verification_code_scree
 import 'package:figma_shopping_app/ui/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPwdScreen extends StatelessWidget {
+class ForgotPwdScreen extends StatefulWidget {
   const ForgotPwdScreen({
     super.key,
   });
+
+  @override
+  State<ForgotPwdScreen> createState() => _ForgotPwdScreenState();
+}
+
+class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
+  final emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,8 @@ class ForgotPwdScreen extends StatelessWidget {
       onButtonClick: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => const VerificationCodeScreen(),
+            builder: (context) =>
+                VerificationCodeScreen(email: emailController.text),
           ),
         );
       },
@@ -32,10 +40,11 @@ class ForgotPwdScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 68),
               child: Image.asset(Assets.assetsForgotPwdCloud),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 72),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 72),
               child: TextField(
-                decoration: InputDecoration(
+                controller: emailController,
+                decoration: const InputDecoration(
                   labelText: "E-mail Address",
                   labelStyle: labelTextStyle,
                   enabledBorder: textFieldBorder,

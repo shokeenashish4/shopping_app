@@ -1,10 +1,34 @@
-import 'package:figma_shopping_app/ui/screens/cart_screen.dart';
+import 'package:figma_shopping_app/data/auth_repository.dart';
+import 'package:figma_shopping_app/di.dart';
+import 'package:figma_shopping_app/ui/screens/gender_screen.dart';
 import 'package:figma_shopping_app/ui/screens/onboarding/signup_onboarding_screen.dart';
 import 'package:figma_shopping_app/ui/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/material.dart';
 
-class NewPwdScreen extends StatelessWidget {
-  const NewPwdScreen({super.key});
+class NewPwdScreen extends StatefulWidget {
+  const NewPwdScreen(
+    this.email, {
+    super.key,
+  });
+
+  final String email;
+
+  @override
+  State<NewPwdScreen> createState() => _NewPwdScreenState();
+}
+
+class _NewPwdScreenState extends State<NewPwdScreen> {
+  final passwordController = TextEditingController();
+
+  final authRepo = di<AuthRepository>();
+  bool showErrorMessage = false;
+  bool? isEmailCorrect, isPasswordCorrect;
+
+  void resetStates() {
+    showErrorMessage = false;
+    isEmailCorrect = null;
+    isPasswordCorrect = null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +38,41 @@ class NewPwdScreen extends StatelessWidget {
       lowerTextAction: "",
       buttonText: "Reset Password",
       onButtonClick: () {
-        //TODO: abhi ye CartScreen pe ja rha h, isko thik krna h baad me
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const CartScreen(),
-          ),
+        final resetPasswordResponse = authRepo.resetPassword(
+          email: widget.email,
+          password: passwordController.text,
+        );
+
+        resetPasswordResponse.then(
+          (wasLoggedIn) {
+            Future.delayed(
+              const Duration(seconds: 2),
+              () {
+                if (wasLoggedIn) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const GenderScreen(),
+                    ),
+                  );
+                } else {
+                  setState(
+                    () {
+                      isPasswordCorrect = false;
+                      isEmailCorrect = false;
+                      showErrorMessage = true;
+                    },
+                  );
+                }
+              },
+            );
+          },
         );
       },
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: "New Password",
                 labelStyle: labelTextStyle,
@@ -33,12 +80,21 @@ class NewPwdScreen extends StatelessWidget {
               ),
             ),
             TextField(
-              decoration: InputDecoration(
+              controller: passwordController,
+              decoration: const InputDecoration(
                 labelText: "Confirm Password",
                 labelStyle: labelTextStyle,
                 enabledBorder: textFieldBorder,
               ),
             ),
+            if (showErrorMessage)
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Text(
+                  "Password Reset failed! Please check your entered Credentials",
+                  style: TextStyle(color: Colors.red, fontSize: 17),
+                ),
+              ),
           ],
         ),
       ),

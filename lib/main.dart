@@ -18,6 +18,15 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final authRepo = di<AuthRepository>();
+  bool? isUserLoggedIn;
+
+  @override
+  void initState() {
+    authRepo.isUserLoggedIn().then((isLoggedIn) {
+      setState(() => isUserLoggedIn = isLoggedIn);
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +53,11 @@ class _MainAppState extends State<MainApp> {
       ),
       themeMode: ThemeMode.system,
       home: Scaffold(
-        body: authRepo.isUserLoggedIn()
-            ? const DashboardScreen()
-            : const SocialOnboardingScreen(),
+        body: isUserLoggedIn == null
+            ? const Center(child: CircularProgressIndicator())
+            : isUserLoggedIn == true
+                ? const DashboardScreen()
+                : const SocialOnboardingScreen(),
       ),
     );
   }
