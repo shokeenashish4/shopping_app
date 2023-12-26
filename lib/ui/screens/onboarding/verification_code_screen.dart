@@ -110,9 +110,7 @@ class VerificationCodeField extends StatelessWidget {
           ),
           textInputAction: inputAction,
           keyboardType: TextInputType.number,
-          onChanged: (_) {
-            onSubmitted();
-          },
+          onChanged: (_) => onSubmitted(),
           maxLength: 1,
         ),
       ),

@@ -14,29 +14,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int selectedIndex = 0;
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
+  final List<Widget> _widgetOptions = <Widget>[
+    const Text(
       'Index 0: Item1',
     ),
-    Text(
+    const Text(
       'Index 1: Item2',
     ),
-    Text(
+    const Text(
       'Index 2: Item3',
     ),
-    Text(
+    const Text(
       'Index 3: Item4',
     ),
-    Text(
+    const Text(
       'Index 4: Item5',
     ),
-    Text(
+    const Text(
       'Index 5: Item6',
     ),
-    Text(
+    const Text(
       'Index 6: Item7',
     ),
-    Text(
+    const Text(
       'Index 7: Item8',
     ),
   ];

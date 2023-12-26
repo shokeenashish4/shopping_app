@@ -49,6 +49,7 @@ class _NewPwdScreenState extends State<NewPwdScreen> {
               const Duration(seconds: 2),
               () {
                 if (wasLoggedIn) {
+                  const Center(child: CircularProgressIndicator());
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const GenderScreen(),

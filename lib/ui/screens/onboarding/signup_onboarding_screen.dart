@@ -9,13 +9,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 bool checkEmail(String email) => RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+      r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
     ).hasMatch(email);
 
 bool checkUsername(String username) => RegExp(r"^[a-z0-9]+").hasMatch(username);
 
 bool checkPassword(String password) =>
-    RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}')
+    RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}')
         .hasMatch(password);
 
 class SignupOnboardingScreen extends StatefulWidget {
@@ -67,23 +67,16 @@ class _SignupOnboardingScreenState extends State<SignupOnboardingScreen> {
               setState(() {
                 showErrorMessage = false;
               });
-
-              final wasSignUpSuccess = authRepo.signUp(
+              final wasSignUpSuccess = await authRepo.signUp(
                 email: emailController.text,
                 password: passwordController.text,
                 username: usernameController.text,
               );
-
-              if (await wasSignUpSuccess) {
-                Future.delayed(
-                  const Duration(seconds: 3),
-                  () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const GenderScreen(),
-                      ),
-                    );
-                  },
+              if (wasSignUpSuccess) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const GenderScreen(),
+                  ),
                 );
               } else {
                 setState(() {

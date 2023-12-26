@@ -37,18 +37,10 @@ packages:
     dependency: "direct main"
     description:
       name: awesome_extensions
-      sha256: "79bb5a24f1224795e599c75ec047ca6f4718e17be535544350d213bb37bc88cd"
+      sha256: a8b68d567119b9be85bc62d8dc2ab6712d74c0130bdc31a52c53d1058c4fe33a
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.10"
-  badges:
-    dependency: transitive
-    description:
-      name: badges
-      sha256: a7b6bbd60dce418df0db3058b53f9d083c22cdb5132a052145dc267494df0b84
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.2"
+    version: "2.0.11"
   boolean_selector:
     dependency: transitive
     description:
@@ -105,14 +97,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  easy_sidemenu:
-    dependency: "direct main"
-    description:
-      name: easy_sidemenu
-      sha256: "8011730de5af1ab0a670fb9a4a2e5cf11ac47c7e4a854ec0fef3c42ade6e5632"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.0"
   fake_async:
     dependency: transitive
     description:
@@ -138,10 +122,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_native_splash
-      sha256: c4d899312b36e7454bedfd0a4740275837b99e532d81c8477579d8183db1de6c
+      sha256: "141b20f15a2c4fe6e33c49257ca1bc114fc5c500b04fcbc8d75016bb86af672f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.6"
+    version: "2.3.8"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -244,10 +228,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: cb3798bef7fc021ac45b308f4b51208a152792445cce0448c9a4ba5879dd8750
+      sha256: c15605cd28af66339f8eb6fbe0e541bfe2d1b72d5825efc6598f3e0a31b9ad27
       url: "https://pub.dev"
     source: hosted
-    version: "5.4.0"
+    version: "6.0.2"
   pointycastle:
     dependency: transitive
     description:
@@ -369,10 +353,10 @@ packages:
     dependency: transitive
     description:
       name: xml
-      sha256: "5bc72e1e45e941d825fd7468b9b4cc3b9327942649aeb6fc5cdbf135f0a86e84"
+      sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.0"
+    version: "6.5.0"
   yaml:
     dependency: transitive
     description:
@@ -382,5 +366,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.2.0-194.0.dev <4.0.0"
+  dart: ">=3.2.0 <4.0.0"
   flutter: ">=3.7.0-0"

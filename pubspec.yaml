@@ -12,7 +12,6 @@ dependencies:
   flutter_svg: ^2.0.9
   awesome_extensions: ^2.0.10
   get_it: ^7.6.4
-  easy_sidemenu: ^0.5.0
 
 dev_dependencies:
   flutter_test:
