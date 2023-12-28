@@ -1,5 +1,5 @@
-import 'package:figma_shopping_app/screens/address_screen.dart';
-import 'package:figma_shopping_app/screens/onboarding_screen_scaffold.dart';
+import 'package:figma_shopping_app/ui/screens/address_screen.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding_screen_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AddReviewScreen extends StatelessWidget {

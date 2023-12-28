@@ -1,12 +1,32 @@
-import 'package:figma_shopping_app/screens/onboarding/social_onboarding_screen.dart';
+import 'package:figma_shopping_app/data/auth_repository.dart';
+import 'package:figma_shopping_app/di.dart';
+import 'package:figma_shopping_app/ui/screens/dashboard_screen.dart';
+import 'package:figma_shopping_app/ui/screens/onboarding/social_onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  setupDependencyInjection();
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  final authRepo = di<AuthRepository>();
+  bool? isUserLoggedIn;
+
+  @override
+  void initState() {
+    authRepo.isUserLoggedIn().then((isLoggedIn) {
+      setState(() => isUserLoggedIn = isLoggedIn);
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +52,12 @@ class MainApp extends StatelessWidget {
         ),
       ),
       themeMode: ThemeMode.system,
-      home: const Scaffold(
-        body: SocialOnboardingScreen(),
+      home: Scaffold(
+        body: isUserLoggedIn == null
+            ? const Center(child: CircularProgressIndicator())
+            : isUserLoggedIn == true
+                ? const DashboardScreen()
+                : const SocialOnboardingScreen(),
       ),
     );
   }

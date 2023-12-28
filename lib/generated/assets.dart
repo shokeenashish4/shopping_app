@@ -5,6 +5,19 @@ class Assets {
   static const String assetsArrowLeft = 'assets/arrow_left.svg';
   static const String assetsCheckIcon = 'assets/check_icon.svg';
   static const String assetsCheckImgCart = 'assets/check_img_cart.png';
+  static const String assetsCrossIcon = 'assets/cross_icon.png';
+  static const String assetsCrossIconImg = 'assets/cross_icon_img.svg';
+  static const String assetsDrawerBagImg = 'assets/drawer_bag_img.png';
+  static const String assetsDrawerDpImg = 'assets/drawer_dp_img.png';
+  static const String assetsDrawerGreenCheck = 'assets/drawer_green_check.svg';
+  static const String assetsDrawerHeartImg = 'assets/drawer_heart_img.png';
+  static const String assetsDrawerInfoCircle = 'assets/drawer_info_circle.png';
+  static const String assetsDrawerLockImg = 'assets/drawer_lock_img.png';
+  static const String assetsDrawerLogoutImg = 'assets/drawer_logout_img.png';
+  static const String assetsDrawerSettingsImg =
+      'assets/drawer_settings_img.png';
+  static const String assetsDrawerSunImg = 'assets/drawer_sun_img.png';
+  static const String assetsDrawerWalletImg = 'assets/drawer_wallet_img.png';
   static const String assetsFacebookLogo = 'assets/facebook_logo.svg';
   static const String assetsForgotPwdCloud = 'assets/forgot_pwd_cloud.png';
   static const String assetsGenderScreenImage =
@@ -21,6 +34,7 @@ class Assets {
   static const String assetsPaymentCard2Img = 'assets/payment_card2_img.png';
   static const String assetsPaypalCardLogo = 'assets/paypal_card_logo.png';
   static const String assetsPlusIcon = 'assets/plus_icon.png';
+  static const String assetsSideDrawerImg = 'assets/side_drawer_img.png';
   static const String assetsSplashIcon = 'assets/splash_icon.png';
   static const String assetsSplashScreenDark = 'assets/splash_screen_dark.png';
   static const String assetsSplashScreenLight =
