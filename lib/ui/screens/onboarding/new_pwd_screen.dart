@@ -49,7 +49,6 @@ class _NewPwdScreenState extends State<NewPwdScreen> {
               const Duration(seconds: 2),
               () {
                 if (wasLoggedIn) {
-                  const Center(child: CircularProgressIndicator());
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const GenderScreen(),
@@ -92,7 +91,7 @@ class _NewPwdScreenState extends State<NewPwdScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: Text(
-                  "Password Reset failed! Please check your entered Credentials",
+                  "Password Reset failed!",
                   style: TextStyle(color: Colors.red, fontSize: 17),
                 ),
               ),

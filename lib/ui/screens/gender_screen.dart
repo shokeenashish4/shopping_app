@@ -76,7 +76,6 @@ class _GenderScreenState extends State<GenderScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          const Center(child: CircularProgressIndicator());
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) {
                               return const DashboardScreen();
@@ -139,7 +138,6 @@ class SelectableButton extends StatelessWidget {
             Future.delayed(
               const Duration(seconds: 2),
               () {
-                const Center(child: CircularProgressIndicator());
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => const DashboardScreen(),

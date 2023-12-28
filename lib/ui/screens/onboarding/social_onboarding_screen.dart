@@ -65,11 +65,13 @@ class _SocialButtonsSectionState extends State<SocialButtonsSection> {
           onTap: () {
             setState(() => isFacebookLoading = true);
             // Wait for facebook's response
-            authRepo.loginWithFacebook().then((wasLoggedIn) {
-              setState(() => isFacebookLoading = false);
-              if (wasLoggedIn) navigateToGenderScreen();
-              // TODO: Handle error cases as well
-            });
+            authRepo.loginWithFacebook().then(
+              (wasLoggedIn) {
+                setState(() => isFacebookLoading = false);
+                if (wasLoggedIn) navigateToGenderScreen();
+                // TODO: Handle error cases as well
+              },
+            );
           },
         ),
         SocialButton(
@@ -79,11 +81,13 @@ class _SocialButtonsSectionState extends State<SocialButtonsSection> {
           onTap: () {
             setState(() => isTwitterLoading = true);
             // Wait for facebook's response
-            authRepo.loginWithTwitter().then((wasLoggedIn) {
-              setState(() => isTwitterLoading = false);
-              if (wasLoggedIn) navigateToGenderScreen();
-              // TODO: Handle error cases as well
-            });
+            authRepo.loginWithTwitter().then(
+              (wasLoggedIn) {
+                setState(() => isTwitterLoading = false);
+                if (wasLoggedIn) navigateToGenderScreen();
+                // TODO: Handle error cases as well
+              },
+            );
           },
         ),
         SocialButton(
@@ -93,11 +97,13 @@ class _SocialButtonsSectionState extends State<SocialButtonsSection> {
           onTap: () {
             setState(() => isGoogleLoading = true);
             // Wait for facebook's response
-            authRepo.loginWithGoogle().then((wasLoggedIn) {
-              setState(() => isGoogleLoading = false);
-              if (wasLoggedIn) navigateToGenderScreen();
-              // TODO: Handle error cases as well
-            });
+            authRepo.loginWithGoogle().then(
+              (wasLoggedIn) {
+                setState(() => isGoogleLoading = false);
+                if (wasLoggedIn) navigateToGenderScreen();
+                // TODO: Handle error cases as well
+              },
+            );
           },
         ),
       ],

@@ -57,9 +57,6 @@ class _LoginScreenState extends State<LoginScreen> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    const Center(
-                      child: CircularProgressIndicator(),
-                    );
                     return const GenderScreen();
                   },
                 ),
