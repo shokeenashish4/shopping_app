@@ -76,11 +76,12 @@ class _GenderScreenState extends State<GenderScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) {
-                              return const DashboardScreen();
-                            }),
-                          );
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DashboardScreen(),
+                              ),
+                              (route) => false);
                         },
                         child: const Text(
                           "Skip",
@@ -130,7 +131,7 @@ class SelectableButton extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(
           left: buttonText == "Female" ? 15 : 5,
-          right: buttonText == "Female" ? 5 : 15,
+          right: buttonText == "Male" ? 5 : 15,
         ),
         child: ElevatedButton(
           onPressed: () {
@@ -138,11 +139,12 @@ class SelectableButton extends StatelessWidget {
             Future.delayed(
               const Duration(seconds: 2),
               () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const DashboardScreen(),
-                  ),
-                );
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DashboardScreen(),
+                    ),
+                    (route) => false);
               },
             );
           },

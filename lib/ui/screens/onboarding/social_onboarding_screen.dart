@@ -1,4 +1,4 @@
-import 'package:figma_shopping_app/data/auth_repository.dart';
+import 'package:figma_shopping_app/data/repositories/auth_repository.dart';
 import 'package:figma_shopping_app/di.dart';
 import 'package:figma_shopping_app/generated/assets.dart';
 import 'package:figma_shopping_app/ui/screens/gender_screen.dart';

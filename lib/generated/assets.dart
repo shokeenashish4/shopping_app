@@ -2,12 +2,15 @@
 class Assets {
   Assets._();
 
+  static const String assetsAdidasLogo = 'assets/adidas_logo.png';
   static const String assetsArrowLeft = 'assets/arrow_left.svg';
+  static const String assetsCartImg = 'assets/cart_img.png';
   static const String assetsCheckIcon = 'assets/check_icon.svg';
   static const String assetsCheckImgCart = 'assets/check_img_cart.png';
   static const String assetsCrossIcon = 'assets/cross_icon.png';
   static const String assetsCrossIconImg = 'assets/cross_icon_img.svg';
   static const String assetsDrawerBagImg = 'assets/drawer_bag_img.png';
+  static const String assetsDrawerClosedImg = 'assets/drawer_closed_img.png';
   static const String assetsDrawerDpImg = 'assets/drawer_dp_img.png';
   static const String assetsDrawerGreenCheck = 'assets/drawer_green_check.svg';
   static const String assetsDrawerHeartImg = 'assets/drawer_heart_img.png';
@@ -19,14 +22,25 @@ class Assets {
   static const String assetsDrawerSunImg = 'assets/drawer_sun_img.png';
   static const String assetsDrawerWalletImg = 'assets/drawer_wallet_img.png';
   static const String assetsFacebookLogo = 'assets/facebook_logo.svg';
+  static const String assetsFilaLogo = 'assets/fila_logo.png';
   static const String assetsForgotPwdCloud = 'assets/forgot_pwd_cloud.png';
   static const String assetsGenderScreenImage =
       'assets/gender_screen_image.png';
   static const String assetsGoogleLogo = 'assets/google_logo.svg';
+  static const String assetsHeartImg = 'assets/heart_img.png';
   static const String assetsImg1Screen11 = 'assets/img1_screen11.png';
   static const String assetsImg2Screen11 = 'assets/img2_screen11.png';
   static const String assetsMapIcon = 'assets/map_icon.png';
   static const String assetsMasterCardLogo = 'assets/master_card_logo.png';
+  static const String assetsNavigationCartImg =
+      'assets/navigation_cart_img.png';
+  static const String assetsNavigationHeartImg =
+      'assets/navigation_heart_img.png';
+  static const String assetsNavigationHomeImg =
+      'assets/navigation_home_img.png';
+  static const String assetsNavigationWalletImg =
+      'assets/navigation_wallet_img.png';
+  static const String assetsNikeLogo = 'assets/nike_logo.png';
   static const String assetsOrderConfirmedImg =
       'assets/order_confirmed_img.png';
   static const String assetsOtherBankCard = 'assets/other_bank_card.png';
@@ -34,11 +48,22 @@ class Assets {
   static const String assetsPaymentCard2Img = 'assets/payment_card2_img.png';
   static const String assetsPaypalCardLogo = 'assets/paypal_card_logo.png';
   static const String assetsPlusIcon = 'assets/plus_icon.png';
+  static const String assetsProductCard1 = 'assets/product_card1.png';
+  static const String assetsProductCard2 = 'assets/product_card2.png';
+  static const String assetsProductCard3 = 'assets/product_card3.png';
+  static const String assetsProductCard4 = 'assets/product_card4.png';
+  static const String assetsProductCard5 = 'assets/product_card5.png';
+  static const String assetsProductCard6 = 'assets/product_card6.png';
+  static const String assetsPumaLogo = 'assets/puma_logo.png';
+  static const String assetsRedHeartImg = 'assets/red_heart_img.png';
+  static const String assetsSearchIcon = 'assets/search_icon.svg';
   static const String assetsSideDrawerImg = 'assets/side_drawer_img.png';
+  static const String assetsSortImg = 'assets/sort_img.png';
   static const String assetsSplashIcon = 'assets/splash_icon.png';
   static const String assetsSplashScreenDark = 'assets/splash_screen_dark.png';
   static const String assetsSplashScreenLight =
       'assets/splash_screen_light.png';
   static const String assetsTwitterLogo = 'assets/twitter_logo.svg';
   static const String assetsVisaImg = 'assets/visa_img.png';
+  static const String assetsVoiceButton = 'assets/voice_button.png';
 }
