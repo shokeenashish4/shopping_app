@@ -1,4 +1,4 @@
-import 'package:figma_shopping_app/data/auth_repository.dart';
+import 'package:figma_shopping_app/data/repositories/auth_repository.dart';
 import 'package:figma_shopping_app/di.dart';
 import 'package:figma_shopping_app/ui/screens/dashboard_screen.dart';
 import 'package:figma_shopping_app/ui/screens/onboarding/social_onboarding_screen.dart';
